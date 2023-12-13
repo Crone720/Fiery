@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,12 @@
       height: 100vh;
       display: flex;
       align-items: center;
-      background: url('https://cdn.discordapp.com/attachments/1184202538531168296/1184595444538544189/1995056614059.gif?ex=658c8b7a&is=657a167a&hm=41e2382608532d2c730e9f861ebef40fa4a50ed7c1e59067f9e157c868be2d98&') center / cover no-repeat;
+      background: url('img/indexfon.gif') center / cover no-repeat;
     }
 
-    .discord-logo, .funpay-logo, .rocket {
+    .discord-logo,
+    .funpay-logo,
+    .rocket {
       cursor: pointer;
       position: absolute;
       width: 50px;
@@ -54,7 +57,6 @@
       animation: textGradient 7s infinite linear;
     }
 
-
     @keyframes textGradient {
       0% {
         color: red;
@@ -80,11 +82,12 @@
 
     .snowflake {
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: 5px;
+      height: 5px;
+      top: -15px;
       background-color: #FFF;
       border-radius: 50%;
-      animation: snowfall 5s linear forwards;
+      animation: snowfall 7s linear forwards;
     }
 
     @keyframes snowfall {
@@ -95,6 +98,7 @@
     }
   </style>
 </head>
+
 <body>
 <a href="https://discord.com/users/1071204110398922792" target="_blank">
   <img class="discord-logo" src="img/discord.svg" alt="Discord Logo">
@@ -178,9 +182,10 @@
       snowflake.addEventListener('animationend', () => {
         body.removeChild(snowflake);
       });
-    }, 500);
+    }, 125);
   });
 </script>
 
 </body>
+
 </html>
