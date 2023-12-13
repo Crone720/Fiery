@@ -11,14 +11,14 @@
       height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(to right, #00008B, #000000); 
+      background: url('img/indexfon.gif') center / cover no-repeat;
     }
 
-    .discord-logo, .funpay-logo {
+    .discord-logo, .funpay-logo, .rocket {
       cursor: pointer;
       position: absolute;
       width: 50px;
-      border-radius: 8px; 
+      border-radius: 8px;
       transition: left 3s ease, top 3s ease, width 3s ease;
     }
 
@@ -34,6 +34,15 @@
       transform: translateY(-50%);
     }
 
+    .rocket {
+      display: none;
+      width: 50px;
+      height: 100px;
+      background: url('img/rocket.png') no-repeat center center;
+      background-size: cover;
+      transition: transform 4s ease-out, left 4s ease-out;
+    }
+
     h1 {
       font-family: 'Arial', sans-serif;
       position: absolute;
@@ -41,8 +50,10 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
-      animation: textGradient 5s infinite linear;
+      font-weight: bold;
+      animation: textGradient 7s infinite linear;
     }
+
 
     @keyframes textGradient {
       0% {
@@ -62,9 +73,25 @@
       }
     }
 
-    iframe {
+    .iframe-container {
       width: 607px;
       height: 360px;
+    }
+
+    .snowflake {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #FFF;
+      border-radius: 50%;
+      animation: snowfall 5s linear forwards;
+    }
+
+    @keyframes snowfall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -75,11 +102,14 @@
 <a href="https://funpay.com/users/8826120/" target="_blank">
   <img class="funpay-logo" src="img/funpay.png" alt="FunPay Logo">
 </a>
+<div class="rocket"></div>
 <h1>Привет, это Моё Био</h1>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const discordLogo = document.querySelector('.discord-logo');
     const funpayLogo = document.querySelector('.funpay-logo');
+    const rocket = document.querySelector('.rocket');
     const text = document.querySelector('h1');
 
     discordLogo.style.left = '50px';
@@ -91,6 +121,10 @@
     funpayLogo.style.top = '70%';
     funpayLogo.style.transform = 'translateY(-50%)';
     funpayLogo.style.width = '30px';
+
+    rocket.style.left = 'calc(100vw + 50px)';
+    rocket.style.top = '50%';
+    rocket.style.transform = 'translateY(-50%)';
 
     text.style.top = '70%';
 
@@ -113,7 +147,40 @@
 
       text.style.top = '20%';
     }, 0);
+
+    launchRocketOnLoad();
+  });
+
+  function launchRocketOnLoad() {
+    const rocket = document.querySelector('.rocket');
+    rocket.style.display = 'block';
+    rocket.style.transform = 'translateY(-50%) rotate(0deg)';
+    rocket.style.left = 'calc(100vw + 50px)';
+    setTimeout(() => {
+      rocket.style.transform = 'translateY(-50%) rotate(180deg)';
+      rocket.style.left = '-50px';
+    }, 0);
+  }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+
+    setInterval(() => {
+      const x = Math.random() * 100;
+      const snowflake = document.createElement('div');
+      snowflake.className = 'snowflake';
+      snowflake.style.left = `${x}vw`;
+
+      body.appendChild(snowflake);
+
+      snowflake.addEventListener('animationend', () => {
+        body.removeChild(snowflake);
+      });
+    }, 500);
   });
 </script>
+
 </body>
 </html>
