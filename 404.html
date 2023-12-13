@@ -1,62 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>Jomix Bio Error</title>
+  <title>Fiery Error</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * {
-      line-height: 1.2;
-      margin: 0;
-    }
-
-    html {
-      color: #888;
-      display: table;
-      font-family: sans-serif;
-      height: 100%;
-      text-align: center;
-      width: 100%;
-    }
-
     body {
-      display: table-cell;
-      vertical-align: middle;
-      margin: 2em auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-size: cover;
     }
 
     h1 {
-      color: #555;
-      font-size: 2em;
-      font-weight: 400;
+      font-family: 'Arial', sans-serif;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+      animation: textGradient 5s infinite linear;
     }
+
 
     p {
-      margin: 0 auto;
-      width: 280px;
+      font-family: 'Arial', sans-serif;
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
     }
 
-    @media only screen and (max-width: 280px) {
-
-      body,
-      p {
-        width: 95%;
-      }
-
-      h1 {
-        font-size: 1.5em;
-        margin: 0 0 0.3em;
-      }
-
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 
+
 <body>
 <h1>Неизвестная Страница</h1>
 <p>переписывай ❤</p>
+
+<button onclick="redirectToRGB()">Перейти На Главную</button>
+
+<script>
+  function redirectToRGB() {
+    window.location.href = 'http://localhost:63342/MyBioSite/index.html?_ijt=ag98er4s7km6atqvekh4n7jbq';
+  }
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const randomNumber = getRandomInt(1, 2);
+
+    if (randomNumber === 1) {
+      document.body.style.backgroundImage = "url('img/404fon1.gif')";
+    } else {
+      document.body.style.backgroundImage = "url('img/404fon1.gif')";
+    }
+  });
+</script>
 </body>
 
 </html>
-<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->
