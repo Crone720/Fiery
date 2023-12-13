@@ -17,6 +17,7 @@
 
     .discord-logo,
     .funpay-logo,
+    .kent-ava,
     .rocket {
       cursor: pointer;
       position: absolute;
@@ -33,8 +34,36 @@
 
     .funpay-logo {
       left: -50px;
-      top: 50%;
+      top: 70%;
       transform: translateY(-50%);
+    }
+
+    .kent-ava {
+      left: -50px;
+      top: 86px;
+      transform: translateY(-50%);
+      font-weight: bold;
+      animation: bebro4ka;
+    }
+    @keyframes bebro4ka {
+      0% {
+        color: red;
+      }
+      25% {
+        color: #9b2d30;
+      }
+      50% {
+        color: black;
+      }
+      75% {
+        color: darkblue;
+      }
+      100% {
+        color: blue;
+      }
+      125% {
+        color: darkred;
+      }
     }
 
     .rocket {
@@ -75,6 +104,18 @@
       }
     }
 
+    kent {
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      position: absolute;
+      top: 395px;
+      left: 776px;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      animation: textGradient 7s infinite linear;
+    }
+
     .iframe-container {
       width: 607px;
       height: 360px;
@@ -106,13 +147,18 @@
 <a href="https://funpay.com/users/8826120/" target="_blank">
   <img class="funpay-logo" src="img/funpay.png" alt="FunPay Logo">
 </a>
+<a href="https://discord.com/users/800387798238232646" target="_blank">
+  <img class="kent-ava" src="img/kent.png" alt="kentava">
+</a>
 <div class="rocket"></div>
 <h1>Привет, это Моё Био</h1>
+<kent>Oroch</kent>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const discordLogo = document.querySelector('.discord-logo');
     const funpayLogo = document.querySelector('.funpay-logo');
+    const kentava = document.querySelector('.kent-ava');
     const rocket = document.querySelector('.rocket');
     const text = document.querySelector('h1');
 
@@ -125,6 +171,11 @@
     funpayLogo.style.top = '70%';
     funpayLogo.style.transform = 'translateY(-50%)';
     funpayLogo.style.width = '30px';
+
+    kentava.style.left = '-180px';
+    kentava.style.top = '45%';
+    kentava.style.transform = 'translateY(-50%)';
+    kentava.style.width = '30px';
 
     rocket.style.left = 'calc(100vw + 50px)';
     rocket.style.top = '50%';
@@ -139,15 +190,22 @@
     funpayLogo.addEventListener('click', () => {
       window.open('https://funpay.com/users/8826120/', '_blank');
     });
+    kentava.addEventListener('click', () => {
+      window.open('https://discord.com/users/800387798238232646', '_blank');
+    });
 
     setTimeout(() => {
       discordLogo.style.left = 'calc(50% - -110px)';
       discordLogo.style.top = 'calc(50% - 55px)';
       discordLogo.style.width = '50px';
 
-      funpayLogo.style.left = 'calc(50% - 160px)';
+      funpayLogo.style.left = 'calc(50% - 140px)';
       funpayLogo.style.top = 'calc(50% - 50px)';
       funpayLogo.style.width = '50px';
+
+      kentava.style.left = 'calc(50% - 20px)';
+      kentava.style.top = 'calc(50% - 25px)';
+      kentava.style.width = '50px';
 
       text.style.top = '20%';
     }, 0);
